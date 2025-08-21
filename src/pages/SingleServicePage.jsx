@@ -24,6 +24,7 @@ export default function SingleServicePage() {
       {/* Red Circle Background */}
       <div className="absolute w-[600px] h-[600px] bg-red-700/10 border border-red-600 rounded-full top-[-150px] left-[-150px] blur-3xl opacity-60 animate-pulse z-0" />
 
+      {/* TOP SECTION (Image + Content) */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-start gap-12">
         {/* IMAGE */}
         <div className="lg:w-1/2 w-full relative">
@@ -36,7 +37,9 @@ export default function SingleServicePage() {
 
         {/* CONTENT */}
         <div className="lg:w-1/2 w-full space-y-8">
-          <h1 className="text-5xl font-bold text-red-500">{selectedService.category}</h1>
+          <h1 className="text-5xl font-bold text-red-500">
+            {selectedService.category}
+          </h1>
           <p className="text-gray-200 text-lg leading-relaxed">
             {selectedService.description}
           </p>
@@ -56,18 +59,25 @@ export default function SingleServicePage() {
               ))}
             </ul>
           </div>
+        </div>
+      </div>
 
-          {/* WHY CHOOSE US */}
-          <div className="pt-8 border-t border-gray-700">
-            <h2 className="text-2xl font-semibold text-red-500">Why Choose Gurukirpa?</h2>
-            <p className="text-gray-300 mt-2">{selectedService.whyChoose}</p>
-          </div>
+      {/* NEW BOTTOM SECTION */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* WHY CHOOSE US */}
+        <div className="space-y-3 border-t border-gray-700 pt-6">
+          <h2 className="text-2xl font-semibold text-red-500">
+            Why Choose Gurukirpa?
+          </h2>
+          <p className="text-gray-300">{selectedService.whyChoose}</p>
+        </div>
 
-          {/* WHAT MAKES US SUPERIOR */}
-          <div className="pt-8 border-t border-gray-700">
-            <h2 className="text-2xl font-semibold text-white">What Makes Us Superior?</h2>
-            <p className="text-gray-400 mt-2">{selectedService.superiority}</p>
-          </div>
+        {/* WHAT MAKES US SUPERIOR */}
+        <div className="space-y-3 border-t border-gray-700 pt-6">
+          <h2 className="text-2xl font-semibold text-white">
+            What Makes Us Superior?
+          </h2>
+          <p className="text-gray-400">{selectedService.superiority}</p>
         </div>
       </div>
 
