@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaQuestionCircle } from "react-icons/fa";
-import bgImage from "../assets/gurukirpa.jpg"; // Use your uploaded image here
+import bgImage from "../assets/gurukirpa.jpg"; // background image
 
 const faqs = [
   {
@@ -42,7 +42,7 @@ const FAQ = () => {
 
   return (
     <section
-      className="relative w-full py-20 px-4 md:px-10 text-white"
+      className="relative w-full py-16 px-4 md:px-8 text-white flex justify-center"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -51,32 +51,34 @@ const FAQ = () => {
         backgroundColor: "rgba(0,0,0,0.7)",
       }}
     >
-      {/* Overlay Red Shine Circle (SVG shimmer style) */}
-      <div className="absolute -top-20 -left-20 w-[500px] h-[500px]  opacity-20 rounded-full blur-3xl z-0 animate-pulse" />
+      {/* Overlay Glow Effect */}
+      <div className="absolute -top-32 right-0 w-[400px] h-[400px] bg-red-600 opacity-20 rounded-full blur-3xl z-0 animate-pulse" />
 
-      <div className="relative z-10 max-w-5xl mx-auto  rounded-3xl shadow-lg ">
+      <div className="relative z-10 w-full max-w-4xl lg:max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-3xl shadow-lg p-6 sm:p-10">
+        {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-extrabold text-red-500 mb-2 tracking-wide">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-red-500 mb-3 tracking-wide">
             <FaQuestionCircle className="inline mr-2 text-red-500" />
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
             Common queries answered to help you understand our packing & moving process better.
           </p>
         </div>
 
-        <div className="space-y-6">
+        {/* FAQ Items */}
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className=" p-3 rounded-lg border border-gray-700 hover:border-red-500 transition-all"
+              className="p-4 rounded-lg border border-gray-700 hover:border-red-500 transition-all"
             >
               <button
-                className="w-full flex justify-between items-center text-left text-white text-lg font-semibold"
+                className="w-full flex justify-between items-center text-left text-white text-base md:text-lg font-semibold"
                 onClick={() => setOpenIndex(index === openIndex ? null : index)}
               >
                 {faq.question}
-                <span className="text-red-500 text-2xl font-bold">
+                <span className="text-red-500 text-xl md:text-2xl font-bold">
                   {openIndex === index ? "−" : "+"}
                 </span>
               </button>
@@ -88,7 +90,7 @@ const FAQ = () => {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-gray-300 mt-4 text-sm leading-relaxed overflow-hidden"
+                    className="text-gray-300 mt-3 text-sm md:text-base leading-relaxed overflow-hidden"
                   >
                     {faq.answer}
                   </motion.p>
